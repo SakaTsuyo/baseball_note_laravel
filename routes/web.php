@@ -31,6 +31,25 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+// TeacherのCRUD
+Route::resource('teachers', TeacherController::class);
+
+// Teacherの認証関連
+Route::get('/teacher/register', [TeacherController::class, 'showRegistrationForm'])->name('teacher.register');
+Route::post('/teacher/register', [TeacherController::class, 'register']);
+Route::get('/teacher/login', [TeacherController::class, 'showLoginForm'])->name('teacher.login');
+Route::post('/teacher/login', [TeacherController::class, 'login']);
+Route::post('/teacher/logout', [TeacherController::class, 'logout'])->name('teacher.logout');
+
+// StudentのCRUD
+Route::resource('students', StudentController::class);
+
+// Studentの認証関連
+Route::get('/student/register', [StudentController::class, 'showRegistrationForm'])->name('student.register');
+Route::post('/student/register', [StudentController::class, 'register']);
+Route::get('/student/login', [StudentController::class, 'showLoginForm'])->name('student.login');
+Route::post('/student/login', [StudentController::class, 'login']);
+Route::post('/student/logout', [StudentController::class, 'logout'])->name('student.logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

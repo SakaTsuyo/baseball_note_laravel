@@ -29,8 +29,8 @@
                 <p class="card-text">
                 教師用アカウントで生徒の<br>
                 日誌にコメントをつけられる</p>
-                <a href="#" class="card-link"></a>
-                <a href="#" class="card-link"></a>
+                <a href="{{ route('teacher.login') }}" class="card-link">ログイン</a>
+                <a href="{{ route('teacher.register') }}" class="card-link">サインアップ</a>
             </div>
         </div>
         <div class="card student col-12 col-sm-6" style="width: 18rem;">
@@ -41,7 +41,7 @@
                 生徒アカウントは教師に<br>
                 日誌を提出できる
                 </p>
-                <a href="#" class="card-link"></a>
+                <a href="{{ route('student.login') }}" class="card-link">ログイン</a>
             </div>
         </div>
     </div>
